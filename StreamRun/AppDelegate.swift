@@ -30,23 +30,35 @@ class AppDelegate: NSObject, NSApplicationDelegate,
     var settings: Settings!
     var refreshTime: Double!
     var refreshTimer: RefreshTimer!
+    var linkLoader: StreamLinkLoader!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
         table.doubleAction = "doubleClick"
-        
-        self.loadStreams()
-        refreshTimer.start()
         
         let reachability = Reachability.reachabilityForInternetConnection()
         reachability.whenReachable = { reachability in
             self.scanForOnlineWithNotification(false)
         }
         reachability.startNotifier()
+        
+        linkLoader = StreamLinkLoader();
+        linkLoader.loadStreams { (json) -> Void in
+            self.loadStreams(json!)
+            self.refreshTimer.start()
+        }
     }
     
-    func loadStreams() {
-        if let streamers = StoreService.parseStreams() {
+    @IBAction func onPaste(sender: AnyObject) {
+        let pasteboard = NSPasteboard.generalPasteboard()
+        let url = pasteboard.stringForType(NSPasteboardTypeString)
+        if let url = url {
+            streamConnector.startTaskForUrl(url, quality: "best")
+        }
+    }
+    
+    func loadStreams(json: JSON) {
+        if let streamers = StoreService.parseStreams(json) {
             self.streamers = streamers
         }
         if let settings = StoreService.parseSettings() {
@@ -120,7 +132,6 @@ class AppDelegate: NSObject, NSApplicationDelegate,
     
     @IBAction func saveChannelsClick(sender: AnyObject) {
         StoreService.saveFile("streams", fileType: "json", content: channelsText.string!)
-        self.loadStreams()
     }
     
     func setupServiceClients() {

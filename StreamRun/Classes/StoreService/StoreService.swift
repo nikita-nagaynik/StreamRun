@@ -10,26 +10,26 @@ import Foundation
 
 class StoreService: NSObject {
     
-    class func parseStreams() -> [String: StreamerData]? {
+    class func loadLocalStreams() -> JSON? {
+        return self.jsonFromFile("streams", fileType: "json")
+    }
+    
+    class func parseStreams(json: JSON) -> [String: StreamerData]? {
         var streamersDataList: [String: StreamerData] = [:]
-        if let json = self.jsonFromFile("streams", fileType: "json") {
-            for (name, streams) in json.dictionaryValue {
-                var streamsDataList: [StreamData] = []
-                for (number, description) in streams.dictionaryValue {
-                    let service = description["service"].stringValue
-                    let channel = description["channel"].stringValue
-                    let streamData = StreamData(name: name, service: service, channel: channel)
-                    streamsDataList.append(streamData)
-                }
-                streamersDataList.updateValue(StreamerData(name: name, streams: streamsDataList), forKey: name)
+        for (name, streams) in json.dictionaryValue {
+            var streamsDataList: [StreamData] = []
+            for (number, description) in streams.dictionaryValue {
+                let service = description["service"].stringValue
+                let channel = description["channel"].stringValue
+                let streamData = StreamData(name: name, service: service, channel: channel)
+                streamsDataList.append(streamData)
             }
-            return streamersDataList
+            streamersDataList.updateValue(StreamerData(name: name, streams: streamsDataList), forKey: name)
         }
-        return nil
+        return streamersDataList
     }
     
     class func parseSettings() -> Settings? {
-        var settings: [String: AnyObject] = Dictionary(minimumCapacity: 2)
         if let json = self.jsonFromFile("settings", fileType: "json") {
             return Settings(fromJson: json)
         }

@@ -15,6 +15,16 @@
 		B50FEF3C1A8BF62C00F78550 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = B50FEF3B1A8BF62C00F78550 /* settings.json */; };
 		B50FEF471A8C085900F78550 /* NSURLConnection+Shorts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FEF461A8C085900F78550 /* NSURLConnection+Shorts.swift */; };
 		B50FEF491A8C099F00F78550 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FEF481A8C099F00F78550 /* String+Additions.swift */; };
+		B53566761B5595360089411E /* StreamLinkLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53566751B5595360089411E /* StreamLinkLoader.swift */; };
+		B53566811B5595900089411E /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53566781B5595900089411E /* Alamofire.swift */; };
+		B53566821B5595900089411E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53566791B5595900089411E /* Download.swift */; };
+		B53566831B5595900089411E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535667A1B5595900089411E /* Manager.swift */; };
+		B53566841B5595900089411E /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535667B1B5595900089411E /* MultipartFormData.swift */; };
+		B53566851B5595900089411E /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535667C1B5595900089411E /* ParameterEncoding.swift */; };
+		B53566861B5595900089411E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535667D1B5595900089411E /* Request.swift */; };
+		B53566871B5595900089411E /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535667E1B5595900089411E /* ResponseSerialization.swift */; };
+		B53566881B5595900089411E /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535667F1B5595900089411E /* Upload.swift */; };
+		B53566891B5595900089411E /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53566801B5595900089411E /* Validation.swift */; };
 		B55F13681A9692DD0007FB94 /* GCD+Shorts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55F13671A9692DD0007FB94 /* GCD+Shorts.swift */; };
 		B593CCA119F3FE81007747C9 /* RefreshTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B593CCA019F3FE81007747C9 /* RefreshTimer.swift */; };
 		B5BA38C81A91254D00AF74F2 /* StreamerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38C71A91254D00AF74F2 /* StreamerData.swift */; };
@@ -63,6 +73,16 @@
 		B50FEF3B1A8BF62C00F78550 /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = settings.json; path = Resources/settings.json; sourceTree = "<group>"; };
 		B50FEF461A8C085900F78550 /* NSURLConnection+Shorts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSURLConnection+Shorts.swift"; path = "Extensions/NSURLConnection+Shorts.swift"; sourceTree = "<group>"; };
 		B50FEF481A8C099F00F78550 /* String+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Additions.swift"; path = "Extensions/String+Additions.swift"; sourceTree = "<group>"; };
+		B53566751B5595360089411E /* StreamLinkLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamLinkLoader.swift; path = Classes/StreamLinkLoader.swift; sourceTree = "<group>"; };
+		B53566781B5595900089411E /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		B53566791B5595900089411E /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		B535667A1B5595900089411E /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		B535667B1B5595900089411E /* MultipartFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
+		B535667C1B5595900089411E /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		B535667D1B5595900089411E /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		B535667E1B5595900089411E /* ResponseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerialization.swift; sourceTree = "<group>"; };
+		B535667F1B5595900089411E /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
+		B53566801B5595900089411E /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		B55F13671A9692DD0007FB94 /* GCD+Shorts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GCD+Shorts.swift"; path = "Extensions/GCD+Shorts.swift"; sourceTree = "<group>"; };
 		B593CCA019F3FE81007747C9 /* RefreshTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshTimer.swift; path = Classes/RefreshTimer/RefreshTimer.swift; sourceTree = "<group>"; };
 		B5BA38C71A91254D00AF74F2 /* StreamerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamerData.swift; path = Classes/StoreService/StreamerData.swift; sourceTree = "<group>"; };
@@ -118,6 +138,22 @@
 				B50FEF381A8BE31100F78550 /* GoodgameClient.swift */,
 			);
 			name = StreamServiceClients;
+			sourceTree = "<group>";
+		};
+		B53566771B5595900089411E /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				B53566781B5595900089411E /* Alamofire.swift */,
+				B53566791B5595900089411E /* Download.swift */,
+				B535667A1B5595900089411E /* Manager.swift */,
+				B535667B1B5595900089411E /* MultipartFormData.swift */,
+				B535667C1B5595900089411E /* ParameterEncoding.swift */,
+				B535667D1B5595900089411E /* Request.swift */,
+				B535667E1B5595900089411E /* ResponseSerialization.swift */,
+				B535667F1B5595900089411E /* Upload.swift */,
+				B53566801B5595900089411E /* Validation.swift */,
+			);
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
 		B593CC9E19F3FE66007747C9 /* RefreshTimer */ = {
@@ -207,6 +243,7 @@
 		B5E0280419F249280095AABC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B53566751B5595360089411E /* StreamLinkLoader.swift */,
 				B593CCA319F423BB007747C9 /* UI */,
 				B593CC9E19F3FE66007747C9 /* RefreshTimer */,
 				B50161DB19F2CBBB00FFBDC4 /* StreamServiceClients */,
@@ -239,6 +276,7 @@
 		B5E0282219F273330095AABC /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B53566771B5595900089411E /* Alamofire */,
 				B5CB263B1A97205E007755DD /* Reachability.swift */,
 				B5E0282319F273330095AABC /* SwiftyJSON.swift */,
 			);
@@ -347,18 +385,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53566851B5595900089411E /* ParameterEncoding.swift in Sources */,
+				B53566861B5595900089411E /* Request.swift in Sources */,
 				B50161DF19F2CC6C00FFBDC4 /* StreamServiceClient.swift in Sources */,
 				B50FEF391A8BE31100F78550 /* GoodgameClient.swift in Sources */,
+				B53566891B5595900089411E /* Validation.swift in Sources */,
 				B5CAD3A919F2F9F7007AD3D7 /* NSColor+Hex.swift in Sources */,
 				B5E027D119F238D90095AABC /* AppDelegate.swift in Sources */,
+				B53566881B5595900089411E /* Upload.swift in Sources */,
+				B53566831B5595900089411E /* Manager.swift in Sources */,
 				B593CCA119F3FE81007747C9 /* RefreshTimer.swift in Sources */,
 				B5E0280A19F24FBD0095AABC /* StreamData.swift in Sources */,
 				B5CB263C1A97205E007755DD /* Reachability.swift in Sources */,
 				B5E0280C19F256960095AABC /* StoreService.swift in Sources */,
+				B53566811B5595900089411E /* Alamofire.swift in Sources */,
+				B53566821B5595900089411E /* Download.swift in Sources */,
+				B53566871B5595900089411E /* ResponseSerialization.swift in Sources */,
 				B55F13681A9692DD0007FB94 /* GCD+Shorts.swift in Sources */,
 				B50FEF471A8C085900F78550 /* NSURLConnection+Shorts.swift in Sources */,
+				B53566761B5595360089411E /* StreamLinkLoader.swift in Sources */,
 				B5BA38C81A91254D00AF74F2 /* StreamerData.swift in Sources */,
 				B5BA38CA1A91377900AF74F2 /* Settings.swift in Sources */,
+				B53566841B5595900089411E /* MultipartFormData.swift in Sources */,
 				B50161A619F2976E00FFBDC4 /* StreamConnector.swift in Sources */,
 				B50161E119F2D51600FFBDC4 /* TwitchClient.swift in Sources */,
 				B50FEF491A8C099F00F78550 /* String+Additions.swift in Sources */,
