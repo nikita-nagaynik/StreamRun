@@ -14,7 +14,8 @@ import AppKit
 class AppDelegate: NSObject, NSApplicationDelegate,
     NSTableViewDataSource,
     NSTableViewDelegate,
-    NSUserNotificationCenterDelegate {
+    NSUserNotificationCenterDelegate,
+    NSMenuDelegate {
 
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var addChannelWindow: NSPanel!
@@ -31,6 +32,53 @@ class AppDelegate: NSObject, NSApplicationDelegate,
     var refreshTime: Double!
     var refreshTimer: RefreshTimer!
     var linkLoader: StreamLinkLoader!
+    
+    var statusBar: NSStatusItem!
+    var streamsOpened: Bool = false
+    
+    override func awakeFromNib() {
+        statusBar = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
+        statusBar.highlightMode = true
+        statusBar.menu = NSMenu()
+        statusBar.menu?.autoenablesItems = false
+        statusBar.menu?.delegate = self;
+        statusBar.image = NSImage(named: "AppIcon")
+        statusBar.image?.size = CGSize(width: 20, height: 20)
+    }
+    
+    func menuWillOpen(menu: NSMenu) {
+        menu.removeAllItems()
+        if NSEvent.pressedMouseButtons() == 2 {
+            menu.addItem(NSMenuItem(title: "Show from clipboard", action: "onPaste:", keyEquivalent: ""))
+        } else {
+            streamsOpened = true;
+            updateMenuToStreams(menu);
+        }
+    }
+    
+    func menuDidClose(menu: NSMenu) {
+        streamsOpened = false;
+    }
+    
+    func updateMenuToStreams(menu: NSMenu) {
+        menu.removeAllItems()
+        if visibleStreams == nil || visibleStreams.count == 0 {
+            let item = NSMenuItem(title: "All offline", action: nil, keyEquivalent: "")
+            item.enabled = false
+            menu.addItem(item)
+        } else {
+            for (index, stream) in enumerate(visibleStreams) {
+                let item = NSMenuItem(title: getVisibleName(index), action: "menuItemClicked:", keyEquivalent: "")
+                item.enabled = true
+                item.tag = index
+                menu.addItem(item);
+            }
+        }
+    }
+    
+    func menuItemClicked(sender: NSMenuItem) {
+        streamConnector.startTaskForUrl(visibleStreams[sender.tag].stremUrl(), quality: "best")
+    }
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
@@ -168,6 +216,9 @@ class AppDelegate: NSObject, NSApplicationDelegate,
                         streamData.status = online ? .Online: .Offline
                         self.sortByOnline()
                         self.table.reloadData()
+                        if self.streamsOpened {
+                            self.updateMenuToStreams(self.statusBar.menu!)
+                        }
                     })
                 }
             }
