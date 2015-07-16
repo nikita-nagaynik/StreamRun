@@ -39,11 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,
     override func awakeFromNib() {
         statusBar = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
         statusBar.highlightMode = true
+        statusBar.title = "S"
         statusBar.menu = NSMenu()
         statusBar.menu?.autoenablesItems = false
         statusBar.menu?.delegate = self;
-        statusBar.image = NSImage(named: "AppIcon")
-        statusBar.image?.size = CGSize(width: 20, height: 20)
     }
     
     func menuWillOpen(menu: NSMenu) {
